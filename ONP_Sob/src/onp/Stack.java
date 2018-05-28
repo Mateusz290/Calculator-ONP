@@ -41,10 +41,8 @@ public class Stack {
 		else return tab[count-1];
 	}
 	
-	
-	
-	public void showstack()  throws IndexOutOfBoundsException{
-		if(count==0) throw new IndexOutOfBoundsException();
+	void showstack()  throws IndexOutOfBoundsException{
+		if(count==0) System.out.println("stos pusty");
 		else {
 			int index=count-1;
 			System.out.print("Stos: ");
@@ -56,14 +54,15 @@ public class Stack {
 		
 	}
 	
-	
 	public boolean isEmpty() {
 		if(count==0) return true;
 		else return false;
 	}
 	
-
-	
-	
+	public void clear(){
+		for(int i=0;i<count;i++) tab[i]=null;
+		
+		count=0;
+	}
 	
 }
