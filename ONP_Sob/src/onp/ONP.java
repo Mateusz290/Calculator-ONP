@@ -1,22 +1,16 @@
 package onp;
 
-
 public class ONP {
-	static Stack stack = new Stack(20);
+	public static Stack stack = new Stack(20);
 	
 	static String result = "";
 	
 	public static int one=0;
 	public static int second=0;
 	
-	
-
 	public static int onp(String wyrazenie){
 		String statement = wyrazenie;
 		boolean sign = true; 
-		
-		//System.out.println("Podaj wyra¿enie:");
-		//statement = Console.readString();
 		
 		statement = statement.replaceAll(" ","");
 		
@@ -48,17 +42,10 @@ public class ONP {
 		
 		System.out.println("ONP:" + result);
 		getresult();
-		System.out.println("Wynik operacji:" + one);
+		System.out.println("Wynik operacji:" + second);
 		
 		return one;
 	}
-	
-	
-
-	
-	
-	
-	
 	
 	private static String getFromStackUntilBracket() {
 		String result = "";
@@ -111,8 +98,6 @@ public class ONP {
 		
 		char onp;
 		
-		
-		
 		for(int i=0;i<result.length();i++){
 			stack.showstack();
 			//onp=result.charAt(i);
@@ -128,7 +113,7 @@ public class ONP {
 			else {
 				if(onp==' ') continue;
 				else {
-				System.out.println("Znak");
+				System.out.println("Znak"+onp);
 				 try {
 				         one=Integer.parseInt(stack.pop());
 				         second=Integer.parseInt(stack.pop());
@@ -137,20 +122,21 @@ public class ONP {
 				        
 				    }
 				 
+				 System.out.println("one "+one+" second = "+second);
 				 switch(onp){
-				 case '+': one+=second;
+				 case '+': second+=one;
 				 break;
-				 case '-': one-=second;
+				 case '-': second-=one;
 				 break;
-				 case '*': one*=second;
+				 case '*': second*=one;
 				 break;
-				 case '/': one/=second;
+				 case '/': second/=one;
 				 break;
 				 default: break;
 				 }
-				 stack.push(String.valueOf(one));
+				 stack.push(String.valueOf(second));
 				 
-				 
+				 System.out.println("Po one = "+one+" second = "+second);
 				
 				}
 				
@@ -158,10 +144,8 @@ public class ONP {
 			
 			
 		}
-		
-		
-		
-		
+		stack.clear();
+				
 	}
 
 }
