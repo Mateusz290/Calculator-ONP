@@ -14,25 +14,6 @@ import onp.Stack;
 
 public class ArythmeticsONPTests {
 
-private Stack stos=null;
-	
-
-	
-	
-	@BeforeClass
-	public static void prepare() {
-		
-	}
-	
-	@AfterClass
-	public static void afterclass(){
-		
-	}
-	
-	@Before 
-	public void before(){
-	}
-	
 	@After
 	public void after(){
 		ONP.one=0;
@@ -40,34 +21,34 @@ private Stack stos=null;
 	}
 	
 	@Test
-	public void test1(){
-		ONP.onp("7+5");
+	public void ONPada(){ // dodawanie
+		ONP.onp("1+5");
 		
-		Assert.assertEquals(12, ONP.one);
-		
-	}
-	
-	@Test
-	public void test2(){
-		ONP.onp("7*5");
-		
-		Assert.assertEquals(35, ONP.one);
+		Assert.assertEquals(6, ONP.second);
 		
 	}
 	
 	@Test
-	public void test3(){
+	public void ONPdiv(){ // odejmowanie
+		ONP.onp("9-1");
+		
+		Assert.assertEquals(8, ONP.second);
+		
+	}
+	
+	@Test
+	public void ONPmlti(){ // mnożenie
+		ONP.onp("9*3");
+		
+		Assert.assertEquals(27, ONP.second);
+		
+	}
+	
+	@Test
+	public void ONPcom(){ // dzielenie
 		ONP.onp("9/3");
 		
 		Assert.assertEquals(3, ONP.one);
-		
-	}
-	
-	@Test
-	public void test4(){
-		ONP.onp("(9+1)*2");
-		
-		Assert.assertEquals(20, ONP.one);
 		
 	}
 }
